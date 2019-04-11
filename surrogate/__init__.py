@@ -1,4 +1,4 @@
-from surrogate import surrogate
+from surrogate.surrogate import surrogate
 
 __all__ = ('surrogate', 'VERSION')
 

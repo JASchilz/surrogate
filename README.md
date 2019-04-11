@@ -1,13 +1,15 @@
 About
 =====
 
-``surrogate`` is a micro-lib helping people to create stubs
-for non-existing modules in ``sys.modules`` so that later
-those modules can be imported. ``surrogate`` does not touch
-modules that exist in ``sys.modules`` even if you ask it to.
+`surrogate` is a micro-lib helping people to create stubs
+for non-existing modules in `sys.modules` so that later
+those modules can be imported. `surrogate` does not touch
+modules that exist in `sys.modules` even if you ask it to.
 
-At the moment ``surrogate`` offers only decorator interface
+At the moment `surrogate` offers only decorator interface
 but it is planned to add context-manager interface as well.
+
+This library has been forked from Kostia Balytskyi's [ikostia/surrogate](https://github.com/ikostia/surrogate) for packaging and posting to PyPi. The commit history remains intact, but I've broken the GitHub fork link to help make it clear to visitors from PyPi which repo corresponds to the packaged and published version.
 
 Intention
 =========
@@ -19,15 +21,16 @@ development environment. Thus, in order to test those
 function, mocking of the aforementioned modules was
 necessary. Unfortunately, author did not manage to
 mock those modules with `patch` decorator from
-``mock`` library. It was necessary to create module stubs
+`mock` library. It was necessary to create module stubs
 first and then to mock them. This micro-lib does exactly
 what author needed (except of the mistakes, of course).
 
 Usage
 =====
 
-Please, use ``surrogate`` as a function decorator::
+Please, use `surrogate` as a function decorator
 
+```
     from surrogate import surrogate
 
     @surrogate('sys.my.cool.module.stub1')
@@ -38,11 +41,13 @@ Please, use ``surrogate`` as a function decorator::
         import sys.my.cool as cool
         import sys # this is a normal sys module
         do_something()
+```
 
 
 Accourding to intention, you can use `surrogate`
-with `mock.patch` decorators::
+with `mock.patch` decorators
 
+```
     from surrogate import surrogate
     from mock import patch
 
@@ -51,7 +56,7 @@ with `mock.patch` decorators::
     def test_something():
         from this.module.doesnt import exist
         do_something()
-
+```
 
 LICENSE
 =======
