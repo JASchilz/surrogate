@@ -21,7 +21,7 @@ class TestSurrogateModuleStubs(unittest.TestCase):
 
         try:
             stubbed()
-        except Exception, e:
+        except Exception as e:
             raise Exception('Modules are not stubbed correctly: %r' % e)
 
         with self.assertRaises(ImportError) as e:
